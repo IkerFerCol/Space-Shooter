@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c45bvsatfx10f"]
+
+[ext_resource type="Script" path="res://enemigo.gd" id="1_5oww6"]
+[ext_resource type="Texture2D" uid="uid://ckr1ymfo1hbfy" path="res://enemyBlue1.png" id="2_cpewu"]
+
+[node name="enemigo" type="Area2D"]
+position = Vector2(253, 71)
+script = ExtResource("1_5oww6")
+
+[node name="EnemyBlue1" type="Sprite2D" parent="."]
+position = Vector2(-1, 10)
+texture = ExtResource("2_cpewu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, 10)
+polygon = PackedVector2Array(-20.5, -42, -33.5, -42, -46.5, -24.4, -46.5, -1.6, -29.5, 41.4, -29.5, 42, -12.4, 42, -8.8, 39, -5.8, 39, -11.5, 19.7, -11.5, 19, 10.8, 19, 6.5, 33.7, 6.5, 38, 12.1, 42, 28.6, 42, 46.5, -5, 46.5, -24.4, 33.5, -41.7, 18.7, -42, 13.9, -39, 10.3, -39, 4.5, -28.5, -5.2, -28, -8.5, -35.4, -8.5, -37.4)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
